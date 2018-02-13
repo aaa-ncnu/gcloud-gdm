@@ -8,7 +8,7 @@ if [ "$PLUGIN_STATE" == "latest" ]; then
 	if gcloud deployment-manager deployments list | grep -q "${PLUGIN_DEPLOYMENT} "; then
 	  gcloud deployment-manager deployments update ${PLUGIN_DEPLOYMENT} --config=${PLUGIN_CONFIG}
 	else
-	  gcloud deployment-manager deployments create ${PLUGIN_DEPLOYMENT} --config=${PLUGIN_CONFIG}
+	  gcloud deployment-manager deployments create ${PLUGIN_DEPLOYMENT} --config=${PLUGIN_CONFIG} --automatic-rollback-on-error
 	fi
 fi
 
