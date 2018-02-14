@@ -14,7 +14,7 @@ fi
 
 if [ "$PLUGIN_STATE" == "absent" ]; then
 	if gcloud deployment-manager deployments list | grep -q "${PLUGIN_DEPLOYMENT} "; then
-	  gcloud deployment-manager deployments delete ${PLUGIN_DEPLOYMENT}
+	  gcloud deployment-manager deployments delete ${PLUGIN_DEPLOYMENT} -q
 	fi
 fi
 
